@@ -14,20 +14,46 @@ export const state = {
     videoList: [
 
     ],
+    viewVideo: null,
     pageinfo: {
         pageSize: 10,
-        pageIndex:1
+        pageIndex: 1,
+        needFristLoad: true
     }
 };
 
 export const actions = {
+    /**
+     * 加载视频分页数据
+     */
     loadVideoListData() {
-        for(let i=((pageIndex-1)*pageSize);i<pageSize*pageIndex;i++){
+        var pageIndex = state.pageinfo.pageIndex;
+        var pageSize = state.pageinfo.pageSize;
+
+        for (let i = ((pageIndex - 1) * pageSize); i < pageSize * pageIndex; i++) {
             var title = '主标题' + i;
-            var item = {title: title, date: '2017-01-01', image: require('./assets/images/item.jpg')};
+            var item = { id: i, title: title, date: '2017-01-01', image: require('./assets/images/item.jpg'), fav: false };
             state.videoList.push(item);
         }
         // 自动下一页
-        pageIndex++;
+        state.pageinfo.pageIndex++;
+    },
+    /**
+     * 设置已经首次加载
+     */
+    setIsLoadFristTime() {
+        state.pageinfo.needFristLoad = false;
+    },
+    /**
+     * 设置视频为喜爱
+     */
+    setVideoFav(item) {
+        item.fav = !item.fav;
+    },
+    /**
+     * 设置正在查看的视频
+     */
+    setViewVideo(item) {
+        state.viewVideo = item;
     }
 };
