@@ -1,0 +1,9 @@
+.fixed-bar{
+    position: fixed;
+}
+.app-bar{
+    height: 56px;
+}
+.pagination-bar{
+    height: 32px;
+}
