@@ -32,7 +32,7 @@ export const actions = {
 
         for (let i = ((pageIndex - 1) * pageSize); i < pageSize * pageIndex; i++) {
             var title = '主标题' + i;
-            var item = { id: i, title: title, date: '2017-01-01', image: require('./assets/images/item.jpg'), fav: false };
+            var item = { id: i, title: title, date: '2017-01-01', image: require('./assets/images/item2.jpg'), fav: false };
             state.videoList.push(item);
         }
         // 自动下一页

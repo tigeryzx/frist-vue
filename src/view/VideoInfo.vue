@@ -2,20 +2,36 @@
     <div>
         <mu-flexbox>
             <mu-flexbox-item order="0" class="app-bar">
-                <mu-appbar :title="视频信息" class="fixed-bar">
+                <mu-appbar :title="state.viewVideo.title" class="fixed-bar">
                     <mu-icon-button icon="chevron_left" slot="left" @click="back" />
                 </mu-appbar>
             </mu-flexbox-item>
         </mu-flexbox>
 
         <mu-flexbox>
+            <mu-flexbox-item style="padding-right:5px;">
+                <mu-text-field hintText="FTP连接" type="text" icon="link" fullWidth />
+            </mu-flexbox-item>
+        </mu-flexbox>
+
+        <mu-flexbox>
             <mu-flexbox-item>
-                {{state.viewVideo==null?"1":"2"}}
-                <mu-text-field hintText="电话号码" type="number" icon="phone" />
+                <mu-paper class="cssImageWarp" :zDepth="1">
+                    <img :src="state.viewVideo.image" class="cssImage"/>
+                </mu-paper>
             </mu-flexbox-item>
         </mu-flexbox>
     </div>
 </template>
+
+<style>
+    .cssImage{
+        width: 100%;
+    }
+    .cssImageWarp{
+        width: 98%;
+    }
+</style>
 <script>
     import { state, actions } from '@/store'
     import router from '@/router/index'
