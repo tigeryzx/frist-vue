@@ -15,7 +15,7 @@ new Vue({
   router,
   route: {
     data() {
-      actions.loadVideoListData();
+      // actions.loadVideoListData();
     }
   },
   template: '<App/>',
